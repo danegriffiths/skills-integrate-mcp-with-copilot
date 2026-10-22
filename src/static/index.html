@@ -8,11 +8,40 @@
   </head>
   <body>
     <header>
+      <div class="teacher-controls">
+        <button id="teacher-login-button" type="button" title="Teacher sign in">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" />
+          </svg>
+          <span>Teacher sign in</span>
+        </button>
+        <button id="teacher-logout-button" class="hidden" type="button">Sign out</button>
+      </div>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
 
+    <dialog id="teacher-login-dialog" aria-labelledby="teacher-login-title">
+      <form id="teacher-login-form">
+        <h2 id="teacher-login-title">Teacher sign in</h2>
+        <div class="form-group">
+          <label for="teacher-username">Username:</label>
+          <input id="teacher-username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="teacher-password">Password:</label>
+          <input id="teacher-password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <p id="teacher-login-message" role="status"></p>
+        <div class="dialog-actions">
+          <button type="submit">Sign in</button>
+          <button id="teacher-login-cancel" class="secondary-button" type="button">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
     <main>
+      <div id="message" class="hidden" role="status" aria-live="polite"></div>
       <section id="activities-container">
         <h3>Available Activities</h3>
         <div id="activities-list">
@@ -21,8 +50,8 @@
         </div>
       </section>
 
-      <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
+      <section id="signup-container" hidden>
+        <h3>Register a Student</h3>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -37,7 +66,6 @@
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <div id="message" class="hidden"></div>
       </section>
     </main>
 
